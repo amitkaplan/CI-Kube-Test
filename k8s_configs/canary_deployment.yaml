@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1beta1 
+kind: Deployment
+metadata:
+  name: canary
+spec:
+  selector:
+    matchLabels:
+      app: canary
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: canary
+        role: front-end
+    spec:
+      containers:
+      - name: canary
+        image: predixci/canary:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+
